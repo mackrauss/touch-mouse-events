@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mouse event test</title>
+
+    <link href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" rel="stylesheet" type="text/css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1 user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+
+    <script type="text/javascript"  src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript"  src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+</head>
+<body>
+    <button id="morse-button">Click me</button>
+    <div id="debug"></div>
+
+    <script type="text/javascript">
+        jQuery(document).ready(function () {
+            // jQuery('#morse-button').mousedown(function (ev) {
+            //     console.log("down");
+            // });
+            // jQuery('#morse-button').mouseup(function (ev) {
+            //     console.log("up");
+            // });
+            jQuery(document).on( "vmousedown", "#morse-button", function (ev) {
+                console.log("down");
+                jQuery('#debug').prepend(jQuery('<p>down</p>'));
+            });
+            jQuery(document).on( "vmouseup", "#morse-button", function (ev) {
+                console.log("up");
+                jQuery('#debug').prepend(jQuery('<p>up</p>'));
+            });
+        });
+    </script>
+</body>
+</html>
